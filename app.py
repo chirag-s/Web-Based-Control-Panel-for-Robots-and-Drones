@@ -112,15 +112,14 @@ def getHistData (numSamples):
 		dates.append(row[0])
 		temps.append(row[1])
 		hums.append(row[2])
- 	return dates,temps,hums
+		return dates,temps,hums
+
 def getData():
 	for row in curs.execute("SELECT * FROM Sensor_data ORDER BY timestamp DESC LIMIT 1"):
 		time = str(row[0])
 		temp = row[1]
-		ph = row[2]
-		turb=row[3]
-		rain=row[4]
-	return time, temp, ph, turb, rain
+		hum = row[2]
+	return time, temp, hum
 
 def maxRowsTable():
 	for row in curs.execute("select COUNT(temp) from  Sensor_data"):
