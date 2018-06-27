@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Autonomous Water Rover</title>
+		<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   
+	</head>
+	<body>
+		<header id="main-header" >
+			<div class="container">
+				<center><h1 >Autonomous Water Rover</h1></center>
+			</div> 
+		</header>
+		<nav id="navbar">
+			<div class="container">
+				<ul>
+					<li> <a href="home.html">Home</a></li>
+					<li> <a href="remote.html">Remote</a></li>
+					 <li> <a href="map.html">Track</a></li>
+					<li> <a href="video.html">Video</a></li>
+					<li> <a href="sensor.html">Sensors</a></li>
+					<li> <a href="award.html">Awards</a></li>
+				</ul>
+			</div>
+		</nav>
+		<nav id="navbar1">
+			<div class="container">
+				<ul>
+					<li> <a href="sensorPlot.html">Sensor Data</a></li>
+					<li> <a href="historicPlot.html">Historic Data</a></li>
+				</ul>
+			</div>
+		</nav>
+
+   
+    <center><h1 class="container1"> Sensor Data </h1></center>
+    <div id="g1"></div>
+    <div id="g2"></div>
+    <div id="g3"></div>
+    <div id="g4"></div>
+    <center><h3 id="refresh"> Last Sensors Reading: {{ time }} ==> <a href="/sensorPlot.html"class="button">REFRESH</a></h3>	</center>
+	<footer id="main-footer">
+			<h6>Copyright &copy;2018 Sheru --> An Autonomous Water Rover </h6>
+	</footer>
+    
+	<script src="../static/raphael-2.1.4.min.js"></script>
+	<script src="../static/justgage.js"></script>
+        <script>
+	var g1, g2,g3,g4;
+	document.addEventListener("DOMContentLoaded", function(event) {
+	    g1 = new JustGage({
+		id: "g1",
+		value: {{temp}},
+		valueFontColor: "#eee",
+		decimals: true,
+		min: 0,
+		max: 100,
+		title: "Temperature",
+		label: "Celcius"
+	});
+	    g2 = new JustGage({
+		id: "g2",
+		value: {{ph}},
+		valueFontColor: "#eee",
+		decimals: true,
+		min: 0,
+		max: 14,
+		title: "pH",
+	});
+	    g3 = new JustGage({
+		id: "g3",
+		value: {{turb}},
+		valueFontColor: '#eee',
+		min: 0,
+		max: 3500,
+		decimals: true,
+		title: "Turbidity Sensor",
+		label: "NTU"
+	});
+	    g4 = new JustGage({
+		id: "g4",
+		value: {{rain}},
+		decimals: true,
+		valueFontColor: '#eee',
+		min: 0,
+		max: 5,
+		title: "Conductivity Sensor",
+		label: "Volts"
+	});
+      });
+    </script>
+</body>
+</html>

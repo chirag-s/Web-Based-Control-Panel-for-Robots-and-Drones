@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Autonomous Water Rover</title>
+	<script type='text/javascript' > 
+ 		 var lat = 19;
+		 var lon =72; 
+	</script>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+	     $(document).ready(function() {        });
+    </script>
+    </head>
+    <body>
+        <header id="main-header" >
+            <div class="container">
+                <h1>Web Remote and Tracking</h1>
+            </div> 
+        </header>
+        <nav id="navbar">
+            <div class="container">
+                <ul>
+                    <li> <a href="home.html">Home</a></li>
+                    <li> <a href="remote.html">Remote</a></li>
+		     <li> <a href="map.html">Track</a></li>
+                    <li> <a href="video.html">Video</a></li>
+                    <li> <a href="sensor.html">Sensors</a></li>
+                    <li> <a href="award.html">Awards</a></li>
+                </ul>
+            </div>
+        </nav>
+	<div id="map"></div>  
+	 <script>
+		
+	    // Use a "/test" namespace.
+            // An application can open a connection on multiple namespaces, and
+            // Socket.IO will multiplex all those connections on a single
+            // physical channel. If you don't care about multiple channels, you
+            // can set the namespace to an empty string.
+            namespace = '/test';
+
+            // Connect to the Socket.IO server.
+            // The connection URL has the following format:
+            //     http[s]://<domain>:<port>[/<namespace>]
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+            // Event handler for new connections.
+            // The callback function is invoked when a connection with the
+            // server is established.
+            socket.on('connect', function() {
+                socket.emit('my_event', {data: 'I\'m connected!'});
+            });
+
+            // Event handler for server sent data.
+            // The callback function is invoked whenever the server emits data
+            // to the client. The data is then displayed in the "Received"
+            // section of the page.
+            socket.on('my_response', function(msg) {
+		
+		lat=msg.lat;
+		lon=msg.lon;
+		var uluru1 = {lat: lat, lng: lon};
+		var uluru = {lat: lat, lng: lon};	
+		var map = new google.maps.Map(document.getElementById('map'), {
+		  zoom: 17,
+		  center: uluru1
+		});
+		var marker = new google.maps.Marker({
+		  position: uluru,
+		  map: map
+		});            
+            });
+	 
+	    </script>
+	    <script async defer
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRBk1MitcS87fqP9uL2SYuQy6wRwkd2_c&callback=initMap">
+	    </script>
+        <div class="flex-container">
+            <div class="column">
+                <h4 align="center">Video Stream</h4>
+                <div align="center" class="video"></div>
+            </div>
+            <div class="column bg-alt">
+                <h4 align="center">Remote Control</h4>
+                <h6 align="center">Press Left Click to Move </h6>
+                
+                    <center><a href="#" id="up" style="font-size:25px;text-decoration:none;">  &#x1F881;&#x1F881;<br>Forward</a><br><br></center>
+                    <a href="#" id="left" style="font-size:25px;text-decoration:none;float: left"> &#x1F880;&#x1F880;Left</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" id="right" style="font-size:25px; text-decoration:none; float:right"> Right &#x1F882;&#x1F882;</a><br><br>
+                    <center><a href="#" id="down" style="font-size:25px; text-decoration:none;"> Backward<br> &#x1F883;&#x1F883;</a></center>
+            </div>
+        </div>
+        <script>
+            $( document ).ready(function(){
+                $("#down").on("mousedown", function() {
+                 $.get('/down_side');
+                 }).on('mouseup', function() {
+                 $.get('/stop');
+                });
+                $("#up").on("mousedown", function() {
+                 $.get('/up_side');
+                 }).on('mouseup', function() {
+                 $.get('/stop');
+                });
+                $("#left").on("mousedown", function() {
+                 $.get('/left_side');
+                 }).on('mouseup', function() {
+                 $.get('/stop');
+                });
+                $("#right").on("mousedown", function() {
+                 $.get('/right_side');
+                 }).on('mouseup', function() {
+                 $.get('/stop');
+                });
+            });
+        </script>
+	
+	<footer id="main-footer">
+			<h6>Copyright &copy;2018 Sheru --> An Autonomous Water Rover </h6>
+		</footer>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Autonomous Water Rover</title>
+	<script type='text/javascript' > 
+ 		 var lat = 19;
+		 var lon =72; 
+	</script>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    </head>
+    <body>
+        <header id="main-header" >
+            <div class="container">
+                <center><h1>Locate Your Rover !!!</h1></center>
+            </div> 
+        </header>
+        <nav id="navbar">
+            <div class="container">
+                <ul>
+                    <li> <a href="home.html">Home</a></li>
+                    <li> <a href="remote.html">Remote</a></li>
+		    <li> <a href="map.html">Track</a></li>
+                    <li> <a href="video.html">Video</a></li>
+                    <li> <a href="sensor.html">Sensors</a></li>
+                    <li> <a href="award.html">Awards</a></li>
+		    
+                </ul>
+            </div>
+        </nav>
+	<center><h1 class="container1"> Live Tracker</h1></center>
+	<center><h3 id="p1" > Latitude and Longitude</h3>	</center>
+        <div id="map1"></div>  
+	 <script>
+		
+	    // Use a "/test" namespace.
+            // An application can open a connection on multiple namespaces, and
+            // Socket.IO will multiplex all those connections on a single
+            // physical channel. If you don't care about multiple channels, you
+            // can set the namespace to an empty string.
+            namespace = '/test';
+
+            // Connect to the Socket.IO server.
+            // The connection URL has the following format:
+            //     http[s]://<domain>:<port>[/<namespace>]
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+            // Event handler for new connections.
+            // The callback function is invoked when a connection with the
+            // server is established.
+            socket.on('connect', function() {
+                socket.emit('my_event', {data: 'I\'m connected!'});
+            });
+
+            // Event handler for server sent data.
+            // The callback function is invoked whenever the server emits data
+            // to the client. The data is then displayed in the "Received"
+            // section of the page.
+            socket.on('my_response', function(msg) {
+		
+		lat=msg.lat;
+		lon=msg.lon;
+		fix=msg.fix;
+		var uluru1 = {lat: lat, lng: lon};
+		var uluru = {lat: lat, lng: lon};	
+		var map = new google.maps.Map(document.getElementById('map1'), {
+		  zoom: 15,
+		  center: uluru1
+		});
+		var marker = new google.maps.Marker({
+		  position: uluru,
+		  map: map
+		});
+		document.getElementById("p1").innerHTML='Latitude :' + lat + '     Longitude : ' + lon + '         Fix Status : ' + fix ;
+		                
+            });
+	 
+	    </script>
+	
+	    <script async defer
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRBk1MitcS87fqP9uL2SYuQy6wRwkd2_c&callback=initMap">
+	    </script>
+
+	<footer id="main-footer">
+			<h6>Copyright &copy;2018 Sheru --> An Autonomous Water Rover </h6>
+		</footer>
+
+    </body>
+</html>
+<! AIzaSyDRBk1MitcS87fqP9uL2SYuQy6wRwkd2_c >

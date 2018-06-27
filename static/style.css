@@ -1,0 +1,212 @@
+body{
+	background-color: #f4f4f4;
+	color: #555;
+	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 1.6em;
+	margin: 0;
+}
+#container1 {
+   min-height:100%;
+   position:relative;
+}
+.container{
+	width: 80%;
+	margin:auto;
+	overflow: hidden;
+}
+#main-header{
+	background-color: #3498db ;
+	color: #fff;
+}
+#navbar{
+	background-color: #333;
+	color: #fff;	
+}
+#navbar ul{
+	padding: 0;
+	list-style: none;
+}
+#navbar li{
+	display:inline;
+}
+#navbar a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	padding-right: 15px;
+}
+#showcase{
+	background-image: url('pool.png');
+	background-size: 100% 100%;
+	min-height: 300px;/*for responsive layout*/
+	margin-bottom: 30px;
+	text-align: center;
+}
+#showcase h1{
+	color: #fff;
+	font-size: 50px;
+	line-height: 1.2em;
+	padding-top: 30px;
+}
+#main{
+	float: left;
+	width:100%;
+	padding:0 30px;
+	background-color: #ddd;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+#main-footer{
+	background: #333;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	margin-top:40px; 
+
+}
+
+@media(max-width: 600px){
+	#main{
+		width:100%;
+		float: none;
+	}
+	#sidebar{
+		width:100%;
+		float: none;
+	}
+}
+/*Award Page Exclusive*/
+#award {
+  width: 100%;
+  background-image: url('award.jpg');
+  height: 405px;
+  background-repeat: no-repeat;
+  background-color: #333;
+  background-position: center;
+}
+/*Remote Page Exclusive*/
+div.video:before{
+	content: url("http://192.168.43.238:8081");
+}
+
+.flex-container{
+	width: 100%;
+	min-height: 400px;
+	margin: 0 auto;
+	display: -webkit-flex; /* Safari */		
+	display: flex; /* Standard syntax */
+}
+.flex-container .column{
+	padding: 10px;
+	background: #dbdfe5;
+	-webkit-flex: 1; /* Safari */
+	-ms-flex: 1; /* IE 10 */
+	flex: 1; /* Standard syntax */
+}
+.flex-container .column.bg-alt{
+	background: #b4bac0;
+}
+#outer{
+			position:fixed;
+			top:0;
+			left:0;
+			
+		}
+
+#top{
+			margin: 0 auto;
+			position: relative;
+			background:#aaa;
+		}
+/*Video Page Exculsive*/
+#video1{
+  width: 100%;
+  background-image: url('http://192.168.43.238:8081');
+  min-height: 405px;
+  background-repeat: no-repeat;
+  background-color: #;
+  background-position: center;
+}
+
+/*Sensor Page Exclusive*/
+#navbar1{
+	background-color: #777;
+	color: #fff;	
+}
+#navbar1 ul{
+	padding: 0;
+	list-style: none;
+}
+#navbar1 li{
+	display:inline;
+}
+#navbar1 a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	padding-right: 15px;
+}
+#g1,#g2, #g3, #g4 {
+        width:200px; height:200px;
+        display: inline-block;
+        margin: 1em;
+        background-color: #222; 
+      }
+.button {
+    background-color: #555; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#refresh{
+	background-color: #777;
+	color: #fff;	
+}
+.container1{
+	width: 100%;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	background-color: #333;
+	margin:auto;
+	overflow: hidden;
+	color: #bbb;
+}
+/*Historic Plot Page*/
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+/*Map*/
+#map1 {
+   width: 100%;
+   height: 600px;
+   background-color: grey;
+ }
+#map {
+   width: 100%;
+   height: 300px;
+   background-color: grey;
+ }
+

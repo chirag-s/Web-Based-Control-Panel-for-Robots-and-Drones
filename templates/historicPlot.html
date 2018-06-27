@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Autonomous Water Rover</title>
+		<link rel="stylesheet" type="text/css" href="../static/style.css">
+	</head>
+	<body>
+		<header id="main-header" >
+			<div class="container">
+				<center><h1 >Autonomous Water Rover</h1></center>
+			</div> 
+		</header>
+		<nav id="navbar">
+			<div class="container">
+				<ul>
+					<li> <a href="home.html">Home</a></li>
+					<li> <a href="remote.html">Remote</a></li>
+					 <li> <a href="map.html">Track</a></li>
+					<li> <a href="video.html">Video</a></li>
+					<li> <a href="sensor.html">Sensors</a></li>
+					<li> <a href="award.html">Awards</a></li>
+				</ul>
+			</div>
+		</nav>
+		<nav id="navbar1">
+			<div class="container">
+				<ul>
+					<li> <a href="sensorPlot.html">Sensor Data</a></li>
+					<li> <a href="historicPlot.html">Historic Data</a></li>
+				</ul>
+			</div>
+		</nav>
+		<center><h1 class="container1"> Historic Data </h1></center>
+	<center><h3 class="container1"> Enter number of samples to retrieve : 
+		<form method="POST">
+			<input name="numSamples" value= {{numSamples}} >
+			<input type="Submit" >
+		</form>
+	</h3></center>
+
+
+<div class="gallery">
+  <a target="_blank" href="/plot/ph">
+    <img src="/plot/ph" alt="pH " width="300" height="200">
+  </a>
+  <div class="desc">pH Plot</div>
+</div>
+
+ <div class="gallery">
+  <a target="_blank" href="/plot/temp">
+    <img src="plot/temp" alt="Temperature" width="300" height="200">
+  </a>
+  <div class="desc"> Temperature Plot </div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="/plot/turb">
+    <img src="/plot/turb" alt="Turbidity" width="300" height="200">
+  </a>
+  <div class="desc">Turbididty Plot</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="plot/rain">
+    <img src="plot/rain" alt="Rain Detector" width="300" height="200">
+  </a>
+  <div class="desc">Conductivity Plot</div>
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+        <footer id="main-footer">
+            <h6>Copyright &copy;2018 Sheru --> An Autonomous Water Rover </h6>
+        </footer>   
+    </div>
+</body>
+</html>
