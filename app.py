@@ -48,7 +48,7 @@ def setPWM(l,r,rev) :
 data1="STOP"
 
 def background_thread():
-	conn1=sqlite3.connect('../sensorsData.db', check_same_thread=False)
+	conn1=sqlite3.connect('sensorsData.db', check_same_thread=False)
 	curs1=conn.cursor()
 	while True:
 		for row in curs1.execute("SELECT * FROM GPS_data ORDER BY id DESC LIMIT 1"):
@@ -71,7 +71,7 @@ elif data1=="BACK":
 
 #thread.start_new_thread(background_thread1,(data1))
 
-conn=sqlite3.connect('../sensorsData.db', check_same_thread=False)
+conn=sqlite3.connect('sensorsData.db', check_same_thread=False)
 curs=conn.cursor()
 
 @socketio.on('my_event', namespace='/test')
