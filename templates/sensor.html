@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Autonomous Water Rover</title>
+		<title>Flying Sensor Node</title>
 		<link rel="stylesheet" type="text/css" href="../static/style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
    
@@ -9,7 +9,7 @@
 	<body>
 		<header id="main-header" >
 			<div class="container">
-				<center><h1 >Autonomous Water Rover</h1></center>
+				<center><h1 >Flying Sensor Node</h1></center>
 			</div> 
 		</header>
 		<nav id="navbar">
@@ -20,7 +20,6 @@
 					 <li> <a href="map.html">Track</a></li>
 					<li> <a href="video.html">Video</a></li>
 					<li> <a href="sensor.html">Sensors</a></li>
-					<li> <a href="award.html">Awards</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -37,17 +36,15 @@
     <center><h1 class="container1"> Sensor Data </h1></center>
     <div id="g1"></div>
     <div id="g2"></div>
-    <div id="g3"></div>
-    <div id="g4"></div>
     <center><h3 id="refresh"> Last Sensors Reading: {{ time }} ==> <a href="/sensorPlot.html"class="button">REFRESH</a></h3>	</center>
 	<footer id="main-footer">
-			<h6>Copyright &copy;2018 Sheru --> An Autonomous Water Rover </h6>
+			<h6>Flying Sensor Node </h6>
 	</footer>
     
     <script src="../static/raphael-2.1.4.min.js"></script>
     <script src="../static/justgage.js"></script>
     <script>
-	var g1, g2,g3,g4;
+	var g1, g2;
 	document.addEventListener("DOMContentLoaded", function(event) {
 	    g1 = new JustGage({
 		id: "g1",
@@ -65,28 +62,8 @@
 		valueFontColor: "#eee",
 		decimals: true,
 		min: 0,
-		max: 14,
-		title: "pH",
-	});
-	    g3 = new JustGage({
-		id: "g3",
-		value: {{turb}},
-		valueFontColor: '#eee',
-		min: 0,
-		max: 3500,
-		decimals: true,
-		title: "Turbidity Sensor",
-		label: "NTU"
-	});
-	    g4 = new JustGage({
-		id: "g4",
-		value: {{rain}},
-		decimals: true,
-		valueFontColor: '#eee',
-		min: 0,
-		max: 5,
-		title: "Conductivity Sensor",
-		label: "Volts"
+		max: 100,
+		title: "Humidity",
 	});
       });
     </script>
