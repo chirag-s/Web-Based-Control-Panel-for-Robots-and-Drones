@@ -112,7 +112,7 @@ def getHistData (numSamples):
 		dates.append(row[0])
 		temps.append(row[1])
 		hums.append(row[2])
-		return dates,temps,hums
+	return dates,temps,hums
 
 def getData():
 	for row in curs.execute("SELECT * FROM Sensor_data ORDER BY timestamp DESC LIMIT 1"):
