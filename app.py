@@ -164,7 +164,7 @@ def sensor():
 
 @app.route("/sensorPlot.html")
 def sensorPlot():
-	time, temp, ph, turb, rain = getData()
+	time, temp, hum= getData()
 	templateData = {
 		'time': time,
 		'temp': temp,
