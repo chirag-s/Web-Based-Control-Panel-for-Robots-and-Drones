@@ -273,3 +273,5 @@ if __name__ == "__main__":
 	#app.debug = True
 	print("Start")
 	socketio.run(app, debug=True,host='0.0.0.0',port=5010)
+
+# sudo modprobe bcm2835-v4l2
