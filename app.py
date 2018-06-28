@@ -158,7 +158,7 @@ def sensor():
 	templateData = {
 		'time': time,
 		'temp': temp,
-		'ph': hum,
+		'ph': hum
 		}
 	return render_template('sensorPlot.html',**templateData)
 
@@ -168,9 +168,7 @@ def sensorPlot():
 	templateData = {
 		'time': time,
 		'temp': temp,
-		'ph': ph,
-		'turb': turb,
-		'rain': rain
+		'ph': hum
 		}
 	return render_template('sensorPlot.html',**templateData)
 
