@@ -55,8 +55,8 @@ def background_thread():
 			lon = row[1]
 			lat = row[2]
 			fix = row[3] #	    print(lat +lon+fix)
-	socketio.emit('my_response',{'lat': lat,'lon':lon,'fix': fix},namespace='/test')
-	socketio.sleep(10)
+		socketio.emit('my_response',{'lat': lat,'lon':lon,'fix': fix},namespace='/test')
+		socketio.sleep(10)
 
 if data1=="STOP":
 	setPWM(mof,mof,mof)
