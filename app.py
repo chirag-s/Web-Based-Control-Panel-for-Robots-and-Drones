@@ -8,8 +8,8 @@ from flask import render_template, request, send_file, make_response, session
 import sqlite3
 import sys
 import time
-import navio.pwm
-import navio.util
+# import navio.pwm
+# import navio.util
 import navio.ublox
 import thread
 reload(sys)
@@ -28,22 +28,22 @@ thread_lock = Lock()
 
 mon=20
 mof=0.5
-#navio.util.check_apm()
-def setPWM(l,r,rev) :
-	pwmL = 0
-	pwmR = 2
-	pwmRev = 1
-	with navio.pwm.PWM(pwmL) as pwml,navio.pwm.PWM(pwmR) as pwmr,navio.pwm.PWM(pwmRev) as pwmrev:
-		pwml.set_period(50)
-		pwml.enable()
-		pwmr.set_period(50)
-		pwmr.enable()
-		pwmrev.set_period(50)
-		pwmrev.enable()
-		for x in range(0,500):
-			pwml.set_duty_cycle(l)
-			pwmr.set_duty_cycle(r)
-			pwmrev.set_duty_cycle(rev)
+# navio.util.check_apm()
+# def setPWM(l,r,rev) :
+# 	pwmL = 0
+# 	pwmR = 2
+# 	pwmRev = 1
+# 	with navio.pwm.PWM(pwmL) as pwml,navio.pwm.PWM(pwmR) as pwmr,navio.pwm.PWM(pwmRev) as pwmrev:
+# 		pwml.set_period(50)
+# 		pwml.enable()
+# 		pwmr.set_period(50)
+# 		pwmr.enable()
+# 		pwmrev.set_period(50)
+# 		pwmrev.enable()
+# 		for x in range(0,500):
+# 			pwml.set_duty_cycle(l)
+# 			pwmr.set_duty_cycle(r)
+# 			pwmrev.set_duty_cycle(rev)
 
 data1="STOP"
 
@@ -59,15 +59,15 @@ def background_thread():
 		socketio.sleep(10)
 
 if data1=="STOP":
-	setPWM(mof,mof,mof)
+#	setPWM(mof,mof,mof)
 elif data1=="FORWARD":
-	setPWM(mon,mon,mof)
+# 	setPWM(mon,mon,mof)
 elif data1=="RIGHT":
-	setPWM(mon,mof,mon)
+# 	setPWM(mon,mof,mon)
 elif data1=="LEFT":
-	setPWM(mof,mon,mon)
+# 	setPWM(mof,mon,mon)
 elif data1=="BACK":
-	setPWM(mof,mof,mon)
+# 	setPWM(mof,mof,mon)
 
 #thread.start_new_thread(background_thread1,(data1))
 
@@ -198,35 +198,35 @@ def change():
 
 @app.route('/left_side')
 def left_side():
-	setPWM(mof,mon,mon)
+# 	setPWM(mof,mon,mon)
 	data1="LEFT"
 	print(data1)
 	return 'true'
 
 @app.route('/right_side')
 def right_side():
-	setPWM(mon,mof,mon)
+# 	setPWM(mon,mof,mon)
 	data1="RIGHT"
 	print(data1)
 	return 'true'
 
 @app.route('/up_side')
 def up_side():
-	setPWM(mon,mon,mof)
+# 	setPWM(mon,mon,mof)
 	data1="FORWARD"
 	print(data1)
 	return 'true'
 
 @app.route('/down_side')
 def down_side():
-	setPWM(mof,mof,mon)
+# 	setPWM(mof,mof,mon)
 	data1="BACK"
 	print(data1)
 	return 'true'
 
 @app.route('/stop')
 def stop():
-	setPWM(mof,mof,mof)
+# 	setPWM(mof,mof,mof)
 	data1="STOP"
 	print(data1)
 	return  'true'
