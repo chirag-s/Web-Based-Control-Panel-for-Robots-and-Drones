@@ -58,15 +58,15 @@ def background_thread():
 		socketio.emit('my_response',{'lat': lat,'lon':lon,'fix': fix},namespace='/test')
 		socketio.sleep(10)
 
-if data1=="STOP":
+# if data1=="STOP":
 #	setPWM(mof,mof,mof)
-elif data1=="FORWARD":
+# elif data1=="FORWARD":
 # 	setPWM(mon,mon,mof)
-elif data1=="RIGHT":
+# elif data1=="RIGHT":
 # 	setPWM(mon,mof,mon)
-elif data1=="LEFT":
+# elif data1=="LEFT":
 # 	setPWM(mof,mon,mon)
-elif data1=="BACK":
+# elif data1=="BACK":
 # 	setPWM(mof,mof,mon)
 
 #thread.start_new_thread(background_thread1,(data1))
