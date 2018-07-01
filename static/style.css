@@ -124,7 +124,7 @@ div.video:before{
 #video1{
   width: 100%;
   background-image: url('http://192.168.43.238:8081');
-  min-height: 405px;
+  min-height: 605px;
   background-repeat: no-repeat;
   background-color: #;
   background-position: center;
