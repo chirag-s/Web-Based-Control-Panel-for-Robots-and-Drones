@@ -1,2 +1,2 @@
-# Flying Sensor Node
-This repo is a part of the project Flying Sensor node. It contains the local server hosted on a drone and various features like live video streaming, sensor data visualization, live tracking etc. It is built to be run on an raspberry pi 3b with a navio2 image configured.
+# Control Panel for Robots and drones
+This repo is a part of the project Flying Sensor node and Autonomous Water Rover. It contains the local server hosted on a drone/robot and supports various features like live video streaming, sensor data visualization, live tracking etc. It is built to be run on a raspberry pi 3b with a navio2 image configured but can be used on any raspberry pi 3b by changing sources of GPS data and having the currect dependencies installed. It uses pyhton serial for sensor data loging from an arduino, sqlite3 as a database, flask as the server and frontend using html, css, javascript.
